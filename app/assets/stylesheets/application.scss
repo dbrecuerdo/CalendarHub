@@ -1,0 +1,87 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+ /*
+ Free App template for Bootstrap 3
+ Code snippet by maridlcrmn for Bootsnipp.com
+ Follow me on Twitter @maridlcrmn
+ Image credits: unsplash.com
+ Image placeholders: placemi.com
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "simple_calendar";
+
+ a{
+     color: Black;
+     :hover{
+         color: 'ForrestGreen';
+     }
+ }
+
+ .navbar-brand{
+     color: Black;
+     font-size: 30px;
+ }
+
+ .navbar-header{
+     :hover{
+         background-color: 'ForrestGreen';
+     }
+ }
+
+ .navbar{
+     margin-bottom: 0 auto;
+     border-bottom: 5px;
+     border-style: solid;
+     border-bottom-color: Black;
+ }
+
+ .calendar-heading{
+     margin-top: 0 auto;
+     padding-top: 0px;
+ }
+  .event{
+     width: 20px;
+     height: 20px;
+     margin: 20px;
+     border: 1px solid rgba(0, 0, 0, .2);
+     border-radius: 100%;
+ }
+ .Deadline{
+     background:  	#CD5C5C;
+ }
+ .Exam{
+     background: #E9967A;
+ }
+ .Administrative{
+     background-color:  	#7FFF00;
+ }
+ .Meeting{
+     background-color: #6495ED;
+ }
+ .Other{
+     background-color: gray;
+ }
+
+
+ .phone {
+     position: relative;
+     max-width: 263px;
+     margin: 0 auto;
+     padding: 65px 15px 55px;
+     border: 2px solid #ddd;
+     border-radius: 20px;
+     background-color: white;
+     box-shadow: 20px 20px 40px #887;
+ }

@@ -1,0 +1,15 @@
+<div class="row-fluid">
+    <div class="col-md-12">
+        <%= month_calendar events: @events do |date, events| %>
+          <%= link_to date.day %>
+
+          <% events.each do |event| %>
+            <div>
+              <%= link_to event.title, event, class:event.event_type.event_type %>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+    <%= link_to 'New Event', new_event_path %>|
+    <%= link_to 'New Calendar', new_calendar_path %>
+</div>
