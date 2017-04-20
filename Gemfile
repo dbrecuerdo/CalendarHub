@@ -5,11 +5,18 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'devise', '~> 4.2'
+# Devise dependencies
+# gem 'orm_adapter', '~> 0.1'
+# gem 'railties','< 5.1','>= 4.1.0'
+# gem 'responders', '>= 0'
+# gem 'warden', '~> 1.2.3'
+# gem 'client_side_validations'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
 # For windows dev platform
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
-# #bootstrap-rails
+# bootstrap-rails
 # gem 'bootstrap', '~> 4.0.0.alpha6'
 #Sprockets-rails
 gem 'sprockets-rails', '>= 2.3.2'

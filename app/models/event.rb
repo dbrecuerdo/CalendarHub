@@ -3,8 +3,8 @@ class Event < ApplicationRecord
     validates :start, presence: true
     validates :end, presence: true
     validate :is_end_valid?
-    belongs_to :calendar
-    belongs_to :event_type
+    belongs_to :calendar, dependent: :destroy
+    belongs_to :event_type, dependent: :destroy
 
     def start_time
         self.start
