@@ -1,0 +1,9 @@
+<div class="list-group">
+  <strong class="list-group-item black">Legend</strong>
+
+  <% @categories.each do |category| %>
+    <div class="list-group-item <%= category.event_type %>">
+      <%= category.event_type %>
+    </div>
+  <% end %>
+</div>

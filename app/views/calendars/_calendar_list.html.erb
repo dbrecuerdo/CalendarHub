@@ -1,0 +1,13 @@
+<div class="list-group">
+  <strong class="list-group-item black">Calendars</strong>
+  <% if @calendars.count < 1 %>
+    <div class="list-group-item">
+      <em>You currently have no calendars. Click on the add button above to create one!</em>
+    </div>
+  <% end %>
+  <% @calendars.each do |calendar| %>
+    <div class="list-group-item">
+      <%= link_to calendar.title, calendar %>
+    </div>
+  <% end %>
+</div>

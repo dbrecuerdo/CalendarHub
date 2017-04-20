@@ -1,11 +1,17 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   # GET /events
   # GET /events.json
   def index
     @events = []
     @events = current_user.events
+    @calendars=[]
+    @calendars = current_user.calendars
+    @categories = EventType.all
+    if @categories.nil?
+      @categories = []
+    end
   end
 
   # GET /events/1
