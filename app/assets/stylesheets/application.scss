@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require fullcalendar
+ *= require daterangepicker
  */
  /*
  Free App template for Bootstrap 3
@@ -20,6 +22,7 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import 'bootstrap-datetimepicker';
  @import "simple_calendar";
 
  a{
@@ -65,7 +68,7 @@
      background: #E9967A;
  }
  .Administrative{
-     background-color:  	#7FFF00;
+     background-color: #7FFF00;
  }
  .Meeting{
      background-color: #6495ED;

@@ -4,8 +4,8 @@
           <%= link_to date.day %>
 
           <% events.each do |event| %>
-            <div>
-              <%= link_to event.title, event, class:event.event_type.event_type %>
+            <div class = "<%= event.event_type.event_type %>">
+              <%= link_to event.title %>
             </div>
           <% end %>
         <% end %>
@@ -13,3 +13,5 @@
     <%= link_to 'New Event', new_event_path %>|
     <%= link_to 'New Calendar', new_calendar_path %>
 </div>
+
+<!-- <div class="calendar"></div> -->
