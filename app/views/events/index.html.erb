@@ -1,11 +1,11 @@
 <div class="row-fluid">
     <div class="col-md-12">
         <%= month_calendar events: @events do |date, events| %>
-          <%= link_to date.day %>
+          <%= date.day %>
 
           <% events.each do |event| %>
             <div class = "<%= event.event_type.event_type %>">
-              <%= link_to event.title %>
+              <%= link_to event.title, event %>
             </div>
           <% end %>
         <% end %>
