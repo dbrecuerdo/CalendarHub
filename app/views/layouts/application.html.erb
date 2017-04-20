@@ -12,7 +12,11 @@
     <%= render 'layouts/header'%>
     <div class="container">
       <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
+        <% if name == "notice" %>
+          <%= content_tag :div, msg, class: "alert alert-success" %>
+        <% elsif name == "alert"%>
+          <%= content_tag :div, msg, class: "alert alert-danger" %>
+        <% end %>
       <% end %>
       <div class="row row-fluid">
         <div class="col-md-12">
