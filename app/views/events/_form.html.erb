@@ -1,17 +1,20 @@
-    <%= form_for(event) do |f| %>
-      <% if event.errors.any? %>
-        <div class="list-group" id="error_explanation">
-          <div class="listr-group-item black">
-            <%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:
-          </div>
-          <% event.errors.full_messages.each do |message| %>
-            <div class="list-group-item">
-              <%= message %>
-            </div>
-          <% end %>
+<div class="well col-md-12">
+  <%= form_for(event) do |f| %>
+    <% if event.errors.any? %>
+      <div class="list-group" id="error_explanation">
+        <div class="list-group-item list-group-item-danger">
+          <%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:
         </div>
-      <% end %>
-<form class="well col-md-12">
+        <ul class="list-group-item">
+          <% event.errors.full_messages.each do |message| %>
+            <li class="list-group-item-text">
+              <%= message %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <form>
       <div class="form-group">
         <%= f.label :title %>
         <%= f.text_field :title, placeholder: :title, class: "form-control" %>
@@ -88,5 +91,6 @@
         <%= link_to 'Back', events_path, class: "btn black" %>
         <%= f.submit class: "btn btn-primary"%>
       </div>
-    <% end %>
-</form>
+    </form>
+  <% end %>
+</div>

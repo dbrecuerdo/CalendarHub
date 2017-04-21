@@ -19,7 +19,7 @@ class Event < ApplicationRecord
 
     private
       def is_end_valid?
-        unless :start.nil? and :end.nil?
+        unless self[:start].nil? or self[:end].nil?
           unless self[:start] <= self[:end]
             errors.add(:end, "cannot be before the start")
           end
