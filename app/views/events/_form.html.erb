@@ -1,14 +1,15 @@
 <form class="well col-md-12">
     <%= form_for(event) do |f| %>
       <% if event.errors.any? %>
-        <div id="error_explanation">
-          <h3><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h3>
-
-          <ul>
+        <div class="list-group" id="error_explanation">
+          <div class="listr-group-item black">
+            <%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:
+          </div>
           <% event.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+            <div class="list-group-item">
+              <%= message %>
+            </div>
           <% end %>
-          </ul>
         </div>
       <% end %>
 
