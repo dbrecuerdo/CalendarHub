@@ -8,6 +8,7 @@ class Event < ApplicationRecord
     belongs_to :calendar
     belongs_to :event_type
     belongs_to :user
+
     def start_time
         self.start
     end
@@ -18,8 +19,10 @@ class Event < ApplicationRecord
 
     private
       def is_end_valid?
-        unless self[:start] <= self[:end]
-          errors.add(:end, "cannot be before the start")
+        unless :start.nil? and :end.nil?
+          unless self[:start] <= self[:end]
+            errors.add(:end, "cannot be before the start")
+          end
         end
       end
 end
