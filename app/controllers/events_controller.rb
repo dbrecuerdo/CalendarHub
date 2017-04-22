@@ -1,13 +1,17 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :validate_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_authentication, only: [:edit, :update, :destroy]
   # GET /events
   # GET /events.json
   def index
-    @events = []
-    @events = current_user.events
+    @events = Event.none
     @calendars=[]
     @calendars = current_user.calendars
+    current_user.calendars.each do |calendar|
+      @events = @events.or calendar.events
+    end
     @categories = EventType.all
     if @categories.nil?
       @categories = []
@@ -73,9 +77,19 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+    def validate_user
+      unless current_user.calendars.include?(@event.calendar)
+        format.html { redirect_to events_url, notice: 'You tried to access a page without proper authentication.' }
+      end
+    end
+
+    def check_authentication
+      unless @event.user == current_user
+        format.html { redirect_to events_url, notice: 'You tried to access a page without proper authentication.' }
+      end
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:title, :event_type_id, :venue, :start, :end, :description, :calendar_id)
-
     end
 end
