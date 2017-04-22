@@ -32,7 +32,10 @@
                   <div class="col-md-*">
                     <div id="user-account-content">
                       <div class="list-group">
-                        <strong class="list-group-item black"><%= current_user.email %></strong>
+                        <strong class="list-group-item black">
+                          <span class="glyphicon glyphicon-user"></span>
+                          <%= current_user.email %>
+                        </strong>
                           <div class="list-group-item">
                             <%= link_to('<span class="glyphicon glyphicon-cog"></span> Settings'.html_safe, edit_user_registration_path) %>
                           </div>
@@ -47,6 +50,13 @@
                   <div class="col-md-*">
                     <div id="upper-right-content">
                       <%= yield(:upper_side_bar) %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-*">
+                    <div id="upper-right-content">
+                      <%= yield(:event_action) %>
                     </div>
                   </div>
                 </div>

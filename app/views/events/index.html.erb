@@ -8,11 +8,12 @@
   <% end %>
 <% end %>
 
-<%= link_to 'New Event', new_event_path %>|
-<%= link_to 'New Calendar', new_calendar_path %>
-
 <% content_for(:upper_side_bar) do %>
   <%= render 'calendars/calendar_list' %>
+<% end %>
+
+<% content_for(:event_action) do %>
+  <%= render 'events/events_action' %>
 <% end %>
 
 <% content_for(:lower_side_bar) do %>

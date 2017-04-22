@@ -1,5 +1,11 @@
 <div class="list-group">
-  <strong class="list-group-item black">Calendars</strong>
+  <strong class="list-group-item black">
+    Calendars
+    <i class="pull-right">
+      <%= link_to('<span class="glyphicon glyphicon-plus"></span>'.html_safe,
+                    new_calendar_path, title: "Add Calendar", class: "black") %>
+    </i>
+  </strong>
   <% if @calendars.count < 1 %>
     <div class="list-group-item">
       <em>You currently have no calendars. Click on the add button above to create one!</em>
@@ -7,7 +13,17 @@
   <% end %>
   <% @calendars.each do |calendar| %>
     <div class="list-group-item">
-      <%= link_to calendar.title, calendar %>
+      <span>
+        <%= link_to calendar.title, calendar %>
+        <span class="pull-right">
+          <%= link_to('<span class="glyphicon glyphicon-pencil"></span>'.html_safe,
+                        edit_calendar_path(calendar),
+                         title: "Edit Calendar") %>
+          <%= link_to('<span class="glyphicon glyphicon-trash"></span>'.html_safe, calendar,
+                      method: :delete, data: { confirm: 'This will delete all events associated with this calendar.' },
+                       title: "Delete Calendar") %>
+        </span>
+      </span>
     </div>
   <% end %>
 </div>
