@@ -1,6 +1,5 @@
 <p>
-  <strong>Title:</strong>
-  <%= @calendar.title %>
+  <h1><%= @calendar.title %></h1>
 </p>
 
 <p>
@@ -8,5 +7,7 @@
   <%= @calendar.description %>
 </p>
 
-<%= link_to 'Edit', edit_calendar_path(@calendar) %> |
-<%= link_to 'Back', root_path %>
+<div class="pull-right">
+  <%= link_to 'Back', events_path, class: "btn black" %>
+  <%= link_to 'Edit', edit_calendar_path(@calendar), class: "btn btn-primary" %>
+</div>

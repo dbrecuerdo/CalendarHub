@@ -1,48 +1,31 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-offset-6">
-          <h1><%= @event.title %></h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-offset-6">
-          in <%= link_to @event.calendar.title, @event.calendar %>, category <%=link_to @event.event_type.event_type %>
-        </div>
-      </div>
 
-      <p>
-        <strong>Venue:</strong>
-        <%= @event.venue %>
-      </p>
 
-      <p>
-        <strong>Start:</strong>
-        <%= @event.start.to_formatted_s(:long)  %>
-      </p>
+<h1><%= @event.title %></h1>
 
-      <p>
-        <strong>End:</strong>
-        <%= @event.end.to_formatted_s(:long)  %>
-      </p>
+in <%= link_to @event.calendar.title, @event.calendar %>, category <%=link_to @event.event_type.event_type %>
 
-      <p>
-        <strong>Description:</strong>
-        <%= @event.description %>
-      </p>
+<p>
+  <strong>Venue:</strong>
+  <%= @event.venue %>
+</p>
 
-      <div class="row">
-        <div class="col-md-1">
-          <span class="btn btn-link btn-primary"><%= link_to 'Edit', edit_event_path(@event) %></span>
-        </div>
-        <div class="col-md-1">
-            <span class="btn btn-link btn-danger"><%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-        </div>
-        <div class="col-md-1">
-          <span class="btn btn-link"><%= link_to 'Back', root_path %></span>
-        </div>
-      </div>
-    </div>
-  </div>
+<p>
+  <strong>Start:</strong>
+  <%= @event.start.to_formatted_s(:long)  %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @event.end.to_formatted_s(:long)  %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<div class="pull-right">
+  <%= link_to 'Back', events_path, class: "btn black" %>
+  <%= link_to 'Edit', edit_event_path(@event), class: "btn btn-primary" %>
+  <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 </div>

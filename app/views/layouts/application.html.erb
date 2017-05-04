@@ -21,13 +21,17 @@
       <div class="row row-fluid">
         <div class="col-md-12">
           <div class="row">
-            <div class="col-md-9">
-              <div id="main-content">
+            <% if user_signed_in? %>
+              <div class="col-md-9">
                 <%= yield %>
               </div>
-            </div>
+            <% else %>
+              <div class="col-md-6 col-md-push-3">
+                <%= yield %>
+              </div>
+            <% end %>
             <% if user_signed_in? %>
-              <div class="col-md-3 container">
+              <div class="col-md-3">
                 <div class="row">
                   <div class="col-md-*">
                     <div id="user-account-content">

@@ -1,10 +1,13 @@
 class CalendarsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_calendar, only: [:show, :edit, :update, :destroy]
+  before_action :validate_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_authentication, only: [:edit, :update, :destroy]
 
   # GET /calendars
   # GET /calendars.json
   def index
+    redirect_to events_path
     @calendars = current_user.calendars
   end
 
@@ -57,7 +60,7 @@ class CalendarsController < ApplicationController
   def destroy
     @calendar.destroy
     respond_to do |format|
-      format.html { redirect_to calendars_url, notice: 'Calendar was successfully destroyed.' }
+      format.html { redirect_to calendars_url, notice: 'Calendar was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -66,6 +69,18 @@ class CalendarsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_calendar
       @calendar = Calendar.find(params[:id])
+    end
+
+    def validate_user
+      unless current_user.calendars.include?(@calendar)
+        format.html { redirect_to events_url, notice: 'You tried to access a page without proper authentication.' }
+      end
+    end
+
+    def check_authentication
+      unless @calendar.user == current_user
+        format.html { redirect_to events_url, notice: 'You tried to access a page without proper authentication.' }
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
