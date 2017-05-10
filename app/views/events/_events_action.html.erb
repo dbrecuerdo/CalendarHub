@@ -1,9 +1,11 @@
 <div class="list-group">
-  <span class="list-group-item black">
-    <strong>Event</strong>
-    <span class="pull-right">
-      <%= link_to('<span class="glyphicon glyphicon-plus"></span>'.html_safe,
-                    new_event_path, title: "Add Event", class: "black") %>
+  <% if current_user.calendars.count>0 %>
+    <span class="list-group-item black">
+      <strong>Event</strong>
+      <span class="pull-right">
+        <%= link_to('<span class="glyphicon glyphicon-plus"></span>'.html_safe,
+                      new_event_path, title: "Add Event", class: "black") %>
+      </span>
     </span>
-  </span>
+  <% end %>
 </div>
