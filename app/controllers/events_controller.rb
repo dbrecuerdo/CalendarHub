@@ -25,6 +25,9 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
+    if current_user.calendars.count<1
+      format.html { redirect_to new_calendar_path, notice: 'You need at least 1 calendar to create and event.' }
+    end
     @event = current_user.events.build
   end
 
